@@ -1,4 +1,5 @@
 <style>
+  /* Import Google font - Poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 * {
   margin: 0;
@@ -7,163 +8,197 @@
   font-family: "Poppins", sans-serif;
 }
 body {
-  display: grid;
-  height: 100vh;
-  width: 100%;
-  place-items: center;
-  background: linear-gradient(to right, #ed4599 0%, #ff80bf 100%);
-}
-::selection {
-  background: #ff80bf;
-}
-.container {
-  background: #fff;
-  max-width: 400px;
-  width: 100%;
-  padding: 10px 30px;
-  border-radius: 5px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
-}
-.container form .title {
-  font-size: 30px;
-  font-weight: 600;
-  margin: 20px 0 10px 0;
-  position: relative;
-}
-.container form .title:before {
-  content: "";
-  position: absolute;
-  height: 4px;
-  width: 33px;
-  left: 0px;
-  bottom: 3px;
-  border-radius: 5px;
-  background: linear-gradient(to right, #ed4599 0%, #ff0080 100%);
-}
-.container form .input-box {
-  width: 100%;
-  height: 50px;
-  margin-top: 30px;
-  position: relative;
-}
-.container form .input-box input {
-  width: 100%;
-  height: 100%;
-  outline: none;
-  font-size: 18px;
-  border: none;
-}
-.container form .underline::before {
-  content: "";
-  position: absolute;
-  height: 2px;
-  width: 100%;
-  background: #ccc;
-  left: 0;
-  bottom: 0;
-}
-.container form .underline::after {
-  content: "";
-  position: absolute;
-  height: 2px;
-  width: 100%;
-  background: #ed4599;
-  left: 0;
-  bottom: 0;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: all 0.3s ease;
-}
-.container form .input-box input:focus ~ .underline::after,
-.container form .input-box input:valid ~ .underline::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-.container form .button {
-  margin: 40px 0 20px 0;
-}
-.container .input-box input[type="submit"] {
-  background: #ed4599;
-  font-size: 18px;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.container .input-box input[type="submit"]:hover {
-  background: linear-gradient(to left, #99004d 0%, #ff0080 100%);
-}
-.container .option {
-  font-size: 14px;
-  text-align: center;
-}
-.container .option div {
+  min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background:#55efc4;
 }
-.container .facebook a,
-.container .twitter a {
-  display: block;
+.container {
+  position: relative;
+  max-width: 700px;
+  width: 100%;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.container header {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+}
+.container .form {
+  margin-top: 30px;
+}
+.form .input-box {
+  width: 100%;
+  margin-top: 20px;
+}
+.input-box label {
+  color: #333;
+}
+.form :where(.input-box input, .select-box) {
+  position: relative;
   height: 50px;
   width: 100%;
-  font-size: 15px;
-  text-decoration: none;
-  padding-left: 20px;
-  line-height: 50px;
+  outline: none;
+  font-size: 1rem;
+  color: #707070;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0 15px;
+}
+.input-box input:focus {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+.form .column {
+  display: flex;
+  column-gap: 15px;
+}
+.form .gender-box {
+  margin-top: 20px;
+}
+.gender-box h3 {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.form :where(.gender-option, .gender) {
+  display: flex;
+  align-items: center;
+  column-gap: 50px;
+  flex-wrap: wrap;
+}
+.form .gender {
+  column-gap: 5px;
+}
+.gender input {
+  accent-color: rgb(130, 106, 251);
+}
+.form :where(.gender input, .gender label) {
+  cursor: pointer;
+}
+.gender label {
+  color: #707070;
+}
+.address :where(input, .select-box) {
+  margin-top: 15px;
+}
+.select-box select {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: #707070;
+  font-size: 1rem;
+}
+.form button {
+  height: 55px;
+  width: 100%;
   color: #fff;
-  border-radius: 5px;
-  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: rgb(130, 106, 251);
 }
-
-.container .facebook i,
-.container .twitter i {
-  padding-right: 12px;
-  font-size: 20px;
+.form button:hover {
+  background: rgb(88, 56, 250);
 }
-.container .twitter a {
-  background: linear-gradient(to right, #00acee 0%, #1abeff 100%);
-  margin: 20px 0 15px 0;
-}
-.container .twitter a:hover {
-  background: linear-gradient(to left, #00acee 0%, #1abeff 100%);
-  margin: 20px 0 15px 0;
-}
-.container .facebook a {
-  background: linear-gradient(to right, #3b5998 0%, #476bb8 100%);
-  margin: 20px 0 50px 0;
-}
-.container .facebook a:hover {
-  background: linear-gradient(to left, #3b5998 0%, #476bb8 100%);
-  margin: 20px 0 50px 0;
+/*Responsive*/
+@media screen and (max-width: 500px) {
+  .form .column {
+    flex-wrap: wrap;
+  }
+  .form :where(.gender-option, .gender) {
+    row-gap: 15px;
+  }
 }
 
 </style>
 
-
 <!DOCTYPE html>
-<!-- Website - www.codingnepalweb.com -->
-<html lang="en" dir="ltr">
+<!---Coding By CodingLab | www.codinglabweb.com--->
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Responsive Login Form HTML CSS | CodingNepal</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Registration Form in HTML CSS</title>
+    <!---Custom CSS File--->
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <form action="#">
-        <div class="title">Login</div>
-        <div class="input-box underline">
-          <input type="text" placeholder="Enter Your Email" required />
-          <div class="underline"></div>
-        </div>
+    <section class="container">
+      <header>Registration Form</header>
+      <form action="#" class="form">
         <div class="input-box">
-          <input type="password" placeholder="Enter Your Password" required />
-          <div class="underline"></div>
+          <label>Full Name</label>
+          <input type="text" placeholder="Enter full name" required />
         </div>
-        <div class="input-box button">
-          <input type="submit" name="" value="Continue" />
+
+        <div class="input-box">
+          <label>Email Address</label>
+          <input type="text" placeholder="Enter email address" required />
         </div>
+
+        <div class="column">
+          <div class="input-box">
+            <label>Phone Number</label>
+            <input type="number" placeholder="Enter phone number" required />
+          </div>
+          <div class="input-box">
+            <label>Birth Date</label>
+            <input type="date" placeholder="Enter birth date" required />
+          </div>
+        </div>
+        <div class="gender-box">
+          <h3>Gender</h3>
+          <div class="gender-option">
+            <div class="gender">
+              <input type="radio" id="check-male" name="gender" checked />
+              <label for="check-male">male</label>
+            </div>
+            <div class="gender">
+              <input type="radio" id="check-female" name="gender" />
+              <label for="check-female">Female</label>
+            </div>
+            <div class="gender">
+              <input type="radio" id="check-other" name="gender" />
+              <label for="check-other">prefer not to say</label>
+            </div>
+          </div>
+        </div>
+        <div class="input-box address">
+          <label>Address</label>
+          <input type="text" placeholder="Enter street address" required />
+          <input type="text" placeholder="Enter street address line 2" required />
+          <div class="column">
+            <div class="select-box">
+              <select>
+                <option hidden>Country</option>
+                <option>America</option>
+                <option>Japan</option>
+                <option>India</option>
+                <option>Nepal</option>
+              </select>
+            </div>
+            <input type="text" placeholder="Enter your city" required />
+          </div>
+          <div class="column">
+            <input type="text" placeholder="Enter your region" required />
+            <input type="number" placeholder="Enter postal code" required />
+          </div>
+        </div>
+        <button>Submit</button>
       </form>
+    </section>
   </body>
 </html>
